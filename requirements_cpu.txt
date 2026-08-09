@@ -5,3 +5,4 @@ peft
 accelerate
 pydantic
 sentencepiece
+huggingface-hub
