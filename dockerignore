@@ -1,0 +1,28 @@
+# Datos y modelos de entrenamiento — no se usan en producción
+data_v2/
+data_piloto/
+esi_index/
+*.csv
+*.pdf
+
+# Checkpoints intermedios — solo hace falta la carpeta final_model del adapter
+trained_model/checkpoint-*
+trained_model_llama3.21b/checkpoint-*
+checkpoints_qlora/
+trained_native/
+
+# Scripts de entrenamiento/generación — no los importa server_chat_v2.py
+1_construir_rag.py
+2_generar_dataset_llm.py
+2_train_qlora.py
+2b_train_native.py
+modelo_nativo.py
+3_evaluate.py
+config_triage.py
+
+# Basura habitual de Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.git/
