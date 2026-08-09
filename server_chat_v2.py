@@ -49,9 +49,10 @@ def parse_args():
                     help="Carpeta del adapter LoRA (debe tener adapter_config.json). "
                          "NO hace falta pasar --base-model: AutoPeftModelForCausalLM "
                          "lo lee solo desde adapter_config.json.")
-    # Railway/Heroku inyectan el puerto real vía $PORT — si existe, manda sobre
-    # el default. Local: sigue arrancando en 8000 si no seteás nada.
-    p.add_argument("--port", type=int, default=int(os.environ.get("PORT", 8000)))
+    # Railway/Heroku/Google Cloud Run inyectan el puerto real vía $PORT
+    # Default 8080 para Cloud Run compatibility, 8000 para local/Railway
+    default_port = int(os.environ.get("PORT", 8080))
+    p.add_argument("--port", type=int, default=default_port)
     return p.parse_args()
 
 
