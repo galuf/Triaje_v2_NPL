@@ -1,7 +1,7 @@
-# No copiar modelos locales al contenedor
+# No copiar modelos locales al contenedor (deshabilitado: ahora usamos modelos locales)
 # El Dockerfile descarga todo desde Hugging Face en el build
-trained_model*/
-trained_model/
+# trained_model*/
+# trained_model/
 
 # Git
 .git/
