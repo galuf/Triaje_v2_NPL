@@ -27,9 +27,8 @@ RUN python -c "from transformers import AutoModelForCausalLM, AutoTokenizer; \
 AutoModelForCausalLM.from_pretrained('Qwen/Qwen2.5-1.5B-Instruct'); \
 AutoTokenizer.from_pretrained('Qwen/Qwen2.5-1.5B-Instruct')"
 
-# Exponer puertos: 8080 (Cloud Run default), 8000 (local/Railway)
-EXPOSE 8000 8080
+# Exponer puerto 8000 (estándar para aplicaciones web)
+EXPOSE 8000
 
-# Cloud Run, Railway, Heroku inyectan el puerto vía $PORT
-# El servidor lo lee automáticamente desde la variable de entorno
+# Fly.io, Railway, Heroku inyectan el puerto vía $PORT (default 8000)
 CMD ["python", "server_chat_v2.py", "--adapter", "trained_model_qwen_1.5b"]
