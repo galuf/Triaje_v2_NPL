@@ -43,3 +43,10 @@ ENV/
 # Environment variables
 .env
 .env.local
+
+# IMPORTANTE: NO subir modelos a GitHub (demasiado grandes)
+# El Dockerfile descarga todo desde Hugging Face durante el build
+trained_model*/
+trained_model/
+.flyrc
+fly.toml

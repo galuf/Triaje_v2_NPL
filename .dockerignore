@@ -1,0 +1,29 @@
+# No copiar modelos locales al contenedor
+# El Dockerfile descarga todo desde Hugging Face en el build
+trained_model*/
+trained_model/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# Otros
+*.log
+.DS_Store
+node_modules/
