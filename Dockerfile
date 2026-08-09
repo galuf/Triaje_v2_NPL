@@ -17,8 +17,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY server_chat_v2.py .
 COPY static_chat/ ./static_chat/
 
-# Descargar el adaptador LoRA entrenado desde Hugging Face Hub
-RUN git clone https://huggingface.co/GalufEde/triagechatbot-qwen-adapter ./trained_model_qwen_1.5b
+# Configurar Git LFS y descargar el adaptador LoRA entrenado desde Hugging Face Hub
+RUN git lfs install --skip-repo && \
+    git clone https://huggingface.co/GalufEde/triagechatbot-qwen-adapter ./trained_model_qwen_1.5b && \
+    cd ./trained_model_qwen_1.5b && git lfs pull && cd ..
 
 # Precarga el modelo base DURANTE el build, no en el arranque del contenedor.
 # Sin esto, cada vez que el dyno/servicio reinicia tendría que bajar ~3GB
